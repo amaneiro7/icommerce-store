@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from '@/components/Layout'
 import './App.css'
@@ -12,6 +12,7 @@ const NotFound = lazy(() => import('@/Pages/NotFound'))
 
 function App () {
   return (
+    <Suspense>
     <BrowserRouter>
       <Layout>
         <Routes>
@@ -24,6 +25,7 @@ function App () {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </Suspense>
   )
 }
 
