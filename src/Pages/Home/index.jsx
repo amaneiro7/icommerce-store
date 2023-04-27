@@ -1,6 +1,8 @@
+import Products from '@/components/Products'
+import initialState from '@/initialState'
 function Home () {
   return (
-    <div>Home</div>
+    <Products products={initialState.products} />
   )
 }
 

@@ -4,7 +4,7 @@ import './Layout.css'
 
 function Layout ({ children }) {
   return (
-    <main>
+    <main className='Main'>
       <Header />
       {children}
       <Footer />
