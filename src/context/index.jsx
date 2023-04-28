@@ -4,7 +4,7 @@ import { useInitialState } from '@/Hook/useInitialState'
 export const AppContext = createContext()
 
 export function AppProvider ({ children }) {
-  const { state: { cart, products }, addToCart, removeFromCart } = useInitialState()
+  const { state: { cart, products }, addToCart, addToBuyer, removeFromCart } = useInitialState()
 
   return (
     <AppContext.Provider
@@ -12,6 +12,7 @@ export function AppProvider ({ children }) {
         cart,
         products,
         addToCart,
+        addToBuyer,
         removeFromCart
       }}
     >
