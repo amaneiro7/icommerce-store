@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
-
+const paypalClientId = import.meta.env.VITE_PAYPAL_TOKEN
 // Custom component to wrap the PayPalButtons and handle currency changes
 export function PaypalButtonWrapper ({ currency, showSpinner, amount, handlePaymentSuccess }) {
   // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
@@ -8,7 +8,7 @@ export function PaypalButtonWrapper ({ currency, showSpinner, amount, handlePaym
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer()
 
   const paypalOptions = {
-    clientId: 'access_token$sandbox$pgbg43q2zxrj79zv$3ccde46cfc5b0863551d4815e67f76ae',
+    clientId: paypalClientId,
     intent: 'capture',
     currency: 'USD'
   }
