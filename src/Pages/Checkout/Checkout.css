@@ -20,7 +20,12 @@
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
+.Checkout-item button:hover svg {
+  color: red;
+}
+
 .Checkout-element {
   display: flex;
   justify-content: space-between;
