@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AppContext } from '@/context'
 import CheckoutList from './CheckoutList'
+import { useGetTotal } from '@/Hook/useGetTotal'
 
 function Checkout () {
   const { cart, removeFromCart } = useContext(AppContext)
 
   const handleRemove = product => () => {
     removeFromCart(product)
-  }
-
-  const handleSumTotal = () => {
-    let total = 0
-    cart.forEach(item => {
-      total += item.price || 0
-    })
-    return total
   }
 
   return (
@@ -31,7 +24,7 @@ function Checkout () {
           />)}
       </div>
       <div className='Checkout-sidebar'>
-        <h3>{cart.length ? `Precio Total: ${handleSumTotal()}` : null}</h3>
+        <h3>{cart.length ? `Precio Total: ${useGetTotal(cart)}` : null}</h3>
         {cart.length
           ? <Link to='/checkout/information'> <button type='button'>Continuar pedido</button></Link>
           : null}
